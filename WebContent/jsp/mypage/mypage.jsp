@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>MYPAGE</title>
-<link rel="stylesheet" href="../../css/style.css" />
+<link rel="stylesheet" href="../../css/home/style.css" />
 </head>
 <body>
 	<table id="main-tab-layout"
