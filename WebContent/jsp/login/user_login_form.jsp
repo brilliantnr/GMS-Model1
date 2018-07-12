@@ -10,8 +10,8 @@
 	<div class="user-login-layout">
 		<h1>사용자 로그인</h1>
 		<form id="user-login-form" action="user_login_result.jsp">
-			<br> ID <br> <input type="text" name="userid" /> <br>
-			PASSWORD <br> <input type="text" name="password" /> <br> <br>
+			<br> ID <br> <input type="text" name="user-id" /> <br>
+			PASSWORD <br> <input type="text" name="user-password" /> <br> <br>
 			<input type="submit" value="전송" />
 		</form>
 	</div>

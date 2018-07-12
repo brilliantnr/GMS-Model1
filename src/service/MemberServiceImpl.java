@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import dao.MemberDaoImpl;
 import domain.*;
 
 public class MemberServiceImpl implements MemberService{
@@ -45,5 +46,24 @@ public class MemberServiceImpl implements MemberService{
 	public void deleteMember(MemberBean member) {
 		
 	}
-
+	@Override
+	public MemberBean login(MemberBean member) {
+		System.out.println(member.getUserid());
+		System.out.println(member.getPassword());
+		MemberBean t = MemberDaoImpl.getInstance().login(member);
+		
+		return t;
+	}
+		/*public boolean login(MemberBean member) {
+		boolean flag = flase;
+		if(MemberDaoImpl.getInstance().login(member)==null){
+			flag=true;
+		};
+		return falg;
+		*/
+		/*public boolean login(MemberBean member) {
+		 * return (MemberDaoImpl.getInstance().login(member)!=null);
+		 */
+		
+	
 }

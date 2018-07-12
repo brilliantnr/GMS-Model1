@@ -1,14 +1,14 @@
 package domain;
 
 public class MemberBean {
-	private String memId, name, age, roll, teamId;
+	private String userid, name, age, roll, teamId, password;
 
-	public String getMemId() {
-		return memId;
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setMemId(String memId) {
-		this.memId = memId;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public String getName() {
@@ -41,6 +41,20 @@ public class MemberBean {
 
 	public void setTeamId(String teamId) {
 		this.teamId = teamId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "MemberBean [userid=" + userid + ", name=" + name + ", age=" + age + ", roll=" + roll + ", teamId="
+				+ teamId + ", password=" + password + "]";
 	}
 	
 }
