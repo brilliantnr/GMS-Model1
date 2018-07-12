@@ -29,5 +29,5 @@ public static void main(String[] args) {
 			TestDao.getInstance().updateSsn(ssn,i+1);
 			}
 		}
-	
+	List<MemberBean> mlst = MemberServiceImpl.getInstance().listMember();
 }
