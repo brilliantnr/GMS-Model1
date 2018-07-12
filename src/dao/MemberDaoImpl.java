@@ -4,23 +4,22 @@ import java.sql.*;
 import java.util.*;
 
 import domain.*;
+import enums.Vendor;
+import fatory.*;
 import pool.DBConstant;
 
 public class MemberDaoImpl implements MemberDao{
 
 	private static MemberDao instance = new MemberDaoImpl();
 	public static MemberDao getInstance() {return instance;}
-	Connection conn;
-	Statement stmt;
+	
 	private MemberDaoImpl() {
 		try {
-			Class.forName(DBConstant.DB_DRIVER);
-			conn = DriverManager.getConnection(
-					DBConstant.CONNECTION_URL,
-					DBConstant.USERNAME,
-					DBConstant.PASSWORD
-					);
-			stmt = conn.createStatement();
+			DatabaseFactory fac = new DatabaseFactory();
+			//Database db = new Oracle();  팩토리 패턴에서는 NEW 안씀
+			Database db = fac.createDatabase(Vendor.ORACLE, DBConstant.USERNAME, DBConstant.PASSWORD);
+			Connection conn = db.getConnection();
+			Statement stmt = conn.createStatement();
 		} catch (Exception e) { 		//Exception의 최상위는 Exception 이라서 다른 것 지우고 Exception만 남김.
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,7 +35,7 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public List<MemberBean> listMember() {
-		
+		List<MemberBean> lst =null;
 		
 		
 		return lst;
@@ -50,7 +49,7 @@ public class MemberDaoImpl implements MemberDao{
 
 	@Override
 	public MemberBean readMemberById(String id) {
-		MemberBean m = null;
+		
 		
 		
 		return null;
@@ -100,10 +99,7 @@ public class MemberDaoImpl implements MemberDao{
 				m.setRoll(rs.getString("ROLL"));
 				m.setPassword(rs.getString("PW"));
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} catch (SQLException e) {e.printStackTrace();}
 		return m;
 	}
 }

@@ -37,7 +37,7 @@ public class TestDao {
 	
 	public void updateSsn(String ssn,int i){
 		try {
-			Class.forName(DBConstant.DB_DRIVER);
+			Class.forName(DBConstant.ORACLE_DRIVER);
 			Connection conn = DriverManager.getConnection(DBConstant.CONNECTION_URL,DBConstant.USERNAME,DBConstant.PASSWORD);
 			String sql =String.format("UPDATE MEMBER SET SSN = '%s' WHERE MEM_ID LIKE '%02d' ",ssn,i);
 			Statement stmt = conn.createStatement();
