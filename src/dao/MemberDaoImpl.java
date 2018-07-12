@@ -1,10 +1,10 @@
 package dao;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import domain.*;
+import pool.DBConstant;
 
 public class MemberDaoImpl implements MemberDao{
 
@@ -51,16 +51,15 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public void deleteMember(MemberBean member) {
 		// TODO Auto-generated method stub
-		
 	}
 	@Override
 	public MemberBean login(MemberBean bean) {
 		System.out.println("dao로 넘어온 bean의 아이디 : " + bean.getUserid());
 		System.out.println("dao로 넘어온 bean의 비번 : " + bean.getPassword());
 		MemberBean m = null;
-			try {    //surround try/catch
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","rachel","7003");
+			try {    //surround with try/catch
+				Class.forName(DBConstant.DB_DRIVER);
+				Connection conn = DriverManager.getConnection(DBConstant.CONNECTION_URL,DBConstant.USERNAME,DBConstant.PASSWORD);
 				String sql = String.format(
 						"   SELECT " 
 						+	" MEM_ID USERID, " 
@@ -81,7 +80,7 @@ public class MemberDaoImpl implements MemberDao{
 					m.setUserid(rs.getString("USERID"));
 					m.setTeamId(rs.getString("TEAMID"));
 					m.setName(rs.getString("NAME"));
-					m.setAge(rs.getString("AGE"));
+					m.setSsn(rs.getString("AGE"));
 					m.setRoll(rs.getString("ROLL"));
 					m.setPassword(rs.getString("PW"));
 				}

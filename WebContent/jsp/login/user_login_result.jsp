@@ -19,19 +19,18 @@
 MemberBean m = new MemberBean();
 m.setUserid(request.getParameter("user-id"));
 m.setPassword(request.getParameter("user-password"));
-MemberBean x=new MemberBean();
-x=MemberServiceImpl.getInstance().login(m);
+m=MemberServiceImpl.getInstance().login(m);
 
 
-if(x!=null){
+if(m!=null){
 %>
-<h3>사용자 아이디 - <%= x.getUserid() %></h3>
-<h3> 사용자 비번 - <%= x.getPassword() %></h3>
-<h3> 사용자 이름 - <%=x.getName() %></h3>
+<h3> <%= m.getName() %>님 반갑습니다. </h3>
+<h3>사용자 아이디 - <%= m.getUserid() %></h3>
+<h3> 사용자 이름 - <%=m.getName() %></h3>
 <%
 }else{
 	%>
-	<h3>아디비번중 먼가 틀렸어요</h3>
+	<h3>아이디 혹은 비밀번호가 일치하지 않습니다.</h3>
 	<%
 }
 %>
