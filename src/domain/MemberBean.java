@@ -1,7 +1,7 @@
 package domain;
 
 public class MemberBean {
-	private String userid, name, ssn, roll, teamId, password;
+	private String userid, name, ssn,age, roll, teamId, password;
 
 	public String getUserid() {
 		return userid;
@@ -49,6 +49,14 @@ public class MemberBean {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
 	}
 
 	@Override

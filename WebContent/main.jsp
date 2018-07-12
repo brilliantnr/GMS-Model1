@@ -30,7 +30,7 @@
 	<table id="main-tab-layout"
 		class="witdh-full height-100 margin-auto color-bg">
 		<tr>
-			<td colspan="2"><h1>GMS</h1></td>
+			<td colspan="2"><h1>★최솔빛누리 화이팅★</h1></td>
 
 		</tr>
 		<tr>
@@ -40,6 +40,8 @@
 				<ul>
 					<li><a href="jsp/login/user_login_form.jsp">사용자로그인</a></li>
 					<li><a href="jsp/login/admin_login.jsp">관리자로그인</a></li>
+					<br />
+					<li><a href="jsp/join/joinForm.jsp"> 회원가입 </a></li>					
 				</ul>
 			</td>
 		</tr>

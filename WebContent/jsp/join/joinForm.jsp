@@ -11,18 +11,14 @@ roll, teamId,;
 </head>
 <body>
 	<form>
-	ID <input type="text" name="user-id" />
-	이름 <input type="text" name="user-name" />
-	생년월일 <input type="text" name="user-birth"/>
-	비밀번호 <input type="text" name="user-password"/>
+	ID <br /><input type="text" name="new-user-id" /><br />
+	이름<br /> <input type="text" name="new-user-name" /><br />
+	생년월일<br /> <input type="text" name="new-user-birth"/><br />
+	비밀번호 <br /><input type="text" name="new-user-password"/><br />
 	<input type="submit" />
 	</form>
 	
 	
-	
-	
-		
-			
 </body>
 </html>
 

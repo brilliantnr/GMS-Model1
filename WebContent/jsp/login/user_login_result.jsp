@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>Document</title>
+	<title> 사용자 로그인 RESULT </title>
 </head>
 <body><%
 MemberBean m = new MemberBean();

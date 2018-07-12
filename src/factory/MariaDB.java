@@ -1,7 +1,6 @@
-package fatory;
+package factory;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.*;
 
 public class MariaDB implements Database{
 	private Connection conn;
@@ -14,7 +13,6 @@ public class MariaDB implements Database{
 	}
 	@Override
 	public Connection getConnection() {
-		Connection conn=null;
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, id, pass);

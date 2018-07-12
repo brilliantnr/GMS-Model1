@@ -14,7 +14,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public void createMember(MemberBean member) {
-		
+		MemberDaoImpl.getInstance().createMember(member);
 	}
 
 	@Override
@@ -48,8 +48,6 @@ public class MemberServiceImpl implements MemberService{
 	}
 	@Override
 	public MemberBean login(MemberBean member) {
-		System.out.println(member.getUserid());
-		System.out.println(member.getPassword());
 		MemberBean t = MemberDaoImpl.getInstance().login(member);
 		
 		return t;

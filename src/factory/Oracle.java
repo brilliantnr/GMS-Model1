@@ -1,8 +1,6 @@
-package fatory;
+package factory;
 
 import java.sql.*;
-
-import pool.DBConstant;
 
 public class Oracle implements Database {
 	private Connection conn;
@@ -18,7 +16,6 @@ public class Oracle implements Database {
 	}
 	@Override
 	public Connection getConnection() {
-		Connection conn = null;
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url,id,pass);
