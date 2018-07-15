@@ -4,12 +4,16 @@ import java.sql.*;
 import java.util.*;
 
 import com.sun.corba.se.impl.ior.GenericTaggedComponent;
+import com.sun.javafx.fxml.BeanAdapter;
 
 import domain.*;
+import enums.MemberQuery;
 import enums.Vendor;
 import factory.*;
 import pool.DBConstant;
-
+//★ MemberQuery.LOGIN.toString() <- Enum 사용 
+//insert,update,delete는 리턴타입 void 니까
+//-> .executeUpdate(sql) 로 사용해야함.
 
 public class MemberDaoImpl implements MemberDao{
 	private static MemberDao instance = new MemberDaoImpl();
@@ -26,16 +30,9 @@ public class MemberDaoImpl implements MemberDao{
 					DBConstant.USERNAME,
 					DBConstant.PASSWORD)
 			.getConnection().createStatement().executeQuery(String.format(
-					"   SELECT " + 
-					" MEM_ID USERID, " + 
-					" TEAM_ID TEAMID, " + 
-					" NAME, " + 
-					" AGE, " + 
-					" ROLL, " +
-					" PASSWORD PW " + 
-					" FROM MEMBER " + 
-					"  WHERE MEM_ID LIKE '%s' AND PASSWORD LIKE '%s'   ",
-					bean.getUserid(), bean.getPassword()));
+					MemberQuery.LOGIN.toString(),
+					bean.getUserid(), bean.getPassword()));    
+
 			while(rs.next()) {
 				m=new MemberBean();
 				m.setUserid(rs.getString("USERID"));
@@ -45,15 +42,21 @@ public class MemberDaoImpl implements MemberDao{
 				m.setRoll(rs.getString("ROLL"));
 				m.setPassword("PW");
 				}
-			
 			} catch (Exception e) { e.printStackTrace();}
-	
 		return m;
 	}	
 
 	@Override
-	public void createMember(MemberBean member) {
-		// TODO Auto-generated method stub
+	public void insertMember(MemberBean member) {
+		try {
+			int rs=
+			DatabaseFactory.createDatabase(
+					Vendor.ORACLE, DBConstant.USERNAME, DBConstant.PASSWORD)
+			.getConnection().createStatement().executeUpdate(
+					String.format(MemberQuery.INSERT_MEMBER.toString(),
+							member.getUserid(),member.getName(),member.getSsn(),member.getPassword()));
+			System.out.println("가입결과:"+rs);
+		} catch (Exception e) {e.printStackTrace();}
 		
 	}
 
@@ -64,15 +67,11 @@ public class MemberDaoImpl implements MemberDao{
 	}
 
 	@Override
-	public List<MemberBean> readMemberByName(String name) {
-		// TODO Auto-generated method stub
+	public List<MemberBean> selectMemberByName(String name) {
+		
 		return null;
 	}
 
-	@Override
-	public MemberBean readMemberById(String id) {
-		return null;
-	}
 
 	@Override
 	public int countMember() {
@@ -89,6 +88,23 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public void deleteMember(MemberBean member) {
 		// TODO Auto-generated method stub
+	}
+	@Override
+	public MemberBean findId(String name, String ssn) {
+		MemberBean member = new MemberBean();
+		try {
+			DatabaseFactory.createDatabase(Vendor.ORACLE, DBConstant.USERNAME, DBConstant.PASSWORD)
+			.getConnection().createStatement().executeQuery(String.format(
+					MemberQuery.FIND_ID.toString(), member.getName(),member.getSsn()));
+			
+		} catch (Exception e) {e.printStackTrace();}
+		
+		return null;
+	}
+	@Override
+	public MemberBean selectMemberById(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

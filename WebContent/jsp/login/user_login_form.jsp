@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../css/home/style.css" />
 </head>
 <body>
-	<div class="user-login-layout">
+	<div id="user-login-layout" >
 		<h1>사용자 로그인</h1>
 		<form id="user-login-form" action="user_login_result.jsp">
 			<br> ID <br> <input type="text" name="user-id" /> <br>

@@ -14,7 +14,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public void createMember(MemberBean member) {
-		MemberDaoImpl.getInstance().createMember(member);
+		MemberDaoImpl.getInstance().insertMember(member);
 	}
 
 	@Override
@@ -29,6 +29,10 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberBean readMemberById(String id) {
+		MemberBean member = null;
+		
+		
+		
 		return null;
 	}
 
@@ -59,9 +63,9 @@ public class MemberServiceImpl implements MemberService{
 		};
 		return falg;
 		*/
-		/*public boolean login(MemberBean member) {
-		 * return (MemberDaoImpl.getInstance().login(member)!=null);
-		 */
+	public boolean checkId(MemberBean member) {
+		return (MemberDaoImpl.getInstance().login(member)!=null);	
+	}
 		
 	
 }

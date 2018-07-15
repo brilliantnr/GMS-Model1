@@ -10,14 +10,16 @@ roll, teamId,;
 	<title>회원가입화면</title>
 </head>
 <body>
-	<form>
+	<div id="join-form" >
+	<form action="join_result.jsp">
+	<h2> 회원가입 </h2>
 	ID <br /><input type="text" name="new-user-id" /><br />
 	이름<br /> <input type="text" name="new-user-name" /><br />
-	생년월일<br /> <input type="text" name="new-user-birth"/><br />
-	비밀번호 <br /><input type="text" name="new-user-password"/><br />
-	<input type="submit" />
+	생년월일<br /> <input type="text" name="new-user-birth" /><br />
+	비밀번호 <br /><input type="text" name="new-user-password" /><br />
+	<input type="submit" value="회원가입 "/>
 	</form>
-	
+	</div>
 	
 </body>
 </html>

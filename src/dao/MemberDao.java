@@ -5,10 +5,11 @@ import java.util.List;
 import domain.*;
 
 public interface MemberDao {
-	public void createMember(MemberBean member);
+	public void insertMember(MemberBean member);
 	public List<MemberBean> listMember();
-	public List<MemberBean> readMemberByName(String name);
-	public MemberBean readMemberById(String id);
+	public List<MemberBean> selectMemberByName(String name);
+	public MemberBean findId(String name ,String ssn);
+	public MemberBean selectMemberById(String id);
 	public int countMember();
 	public void updateMember(MemberBean member);
 	public void deleteMember(MemberBean member);

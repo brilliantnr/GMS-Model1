@@ -13,7 +13,7 @@
 		.align-center{text-align: center}
 
 #user-login-layout {width: 250px; margin: 200px auto}
-#user-login-form {border: 1px solid black ;width: 250px margin: 200px auto}
-
-#admin-login-layout{width:250px; margin:200px auto ;width: 250px;}
+#user-login-form {width: 250px ;margin: 200px auto}
+#join-form {width: 250px ;margin: 200px auto}
+#admin-login-layout{width:250px; margin:200px auto}
 		
