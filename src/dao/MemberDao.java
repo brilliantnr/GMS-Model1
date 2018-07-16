@@ -14,4 +14,5 @@ public interface MemberDao {
 	public void updateMember(MemberBean member);
 	public void deleteMember(MemberBean member);
 	public MemberBean login(MemberBean bean);
+	public List<MemberBean> searchTeamByName(String teamName);
 }

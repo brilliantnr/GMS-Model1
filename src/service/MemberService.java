@@ -1,7 +1,6 @@
 package service;
 
 import java.util.*;
-
 import domain.*;
 
 public interface MemberService {
@@ -13,4 +12,5 @@ public interface MemberService {
 	public void updateMember(MemberBean member);
 	public void deleteMember(MemberBean member);
 	public MemberBean login(MemberBean member); //boolean
+	public List<MemberBean> searchTeamByName(String teamName);
 }

@@ -21,6 +21,7 @@ m.setUserid(request.getParameter("user-id"));
 m.setPassword(request.getParameter("user-password"));
 m=MemberServiceImpl.getInstance().login(m);
 
+//request.getParameter★★
 
 if(m!=null){
 %>
